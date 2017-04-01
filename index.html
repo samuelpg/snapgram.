@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snapgrm.</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href=".\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1><i class="fa fa-snapchat-ghost fa-2x"></i> Snapgrm.</h1>
+      <!-- Input de Video Nuevo -->
+      <div class=inputs>
+        <button id="new_video">  <i class="fa fa-film"></i> Nuevo Video  </button>
+        <button id="new_picture">  <i class="fa fa-photo"></i>  Nueva Foto  </button>
+        <button id="new_audio">  <i class="fa fa-microphone"></i>  Nuevo Audio  </button>
+      </div>
+    </div>
+    <div id="new_video_input" class="hidden center">
+      <button id="cancel_video" class="cancel">X</button><br />
+      <video id="video_feedback" muted autoplay class="center_video"></video>
+      <div id="video_controls">
+        <select id="video_effect">
+          <option value="normal">Normal (30s max)</option>
+          <option value="boomerang">Boomerang (2s)</option>
+        </select>
+        <div id="time_left_video" class="clock"></div><br /><br />
+        <button id="video_start_stop" class="center_button">Grabar</button>
+      </div>
+      <div id="final_video_save" class="hidden">
+        <video id="final_video" autoplay controls loop></video>
+        <br />
+        <button id="retake_video"><i class="fa fa-repeat" ></i>  Volver a grabar</button>
+        <input id="video_name" placeholder="Nombre de tu video" style="width:500px"/>
+        <textarea placeholder="Describe tu video" id="video_desc" style="width:500px"></textarea>
+        <br />
+        <button id="save_video" onclick="saveVideoTaken(false)"><i class="fa fa-save" ></i>  Guardar</button>
+        <h3>Cortar antes de guardar</h3>
+        <label>Comienza el corte:<input type="number" id="video_cut_start" style="width:30px" /></label>
+        <label>Termina el corte: <input type="number" id="video_cut_stop" style="width:30px"/></label><br />
+        <button id="cut_video"><i class="fa fa-cut" ></i>  Cortar</button>
+      </div>
+      <div id="boomerang" class="hidden">
+        <video id="video_boom" autoplay muted></video>
+        <br />
+        <button onclick="retakeMyVideo()" ><i class="fa fa-repeat" ></i>  Volver a grabar</button>
+        <input id="video_name_boom" placeholder="Nombre de tu video"/>
+        <textarea placeholder="Describe tu video" id="video_desc_boom" style="width:500px;"></textarea>
+        <button id="save_video_boom" onclick="saveVideoTaken(true)"><i class="fa fa-save" ></i> Guardar</button>
+      </div>
+    </div>
+
+    <div id="new_img_input" class="hidden">
+      <button id="cancel_img" class="cancel">X</button><br />
+      <div id="img_feedback_modal">
+        <video id="img_feedback" muted autoplay></video>
+        <br />
+        <label>Escoge un delay: <select id="img_delay">
+          <option value="zero">0s</option>
+          <option value="three">3s</option>
+        </select></label>
+        <div id="img_clock" class="clock">
+
+        </div>
+        <button id="take_img"><i class="fa fa-camera"></i>Tomar foto</button>
+      </div>
+      <div id="img_result_modal" class="hidden">
+        <canvas id="img_final_edit"></canvas>
+        <select id="sticker_categories">
+          <option value="games">
+            Juegos
+          </option>
+          <option value="hats">
+            Sombreros
+          </option>
+          <option value="glasses">
+            Lentes
+          </option>
+          <option value="random">
+            Random
+          </option>
+          <option value="frames">
+            Cuadros
+          </option>
+        </select>
+        <button id="retake_img"><i class="fa fa-repeat"></i>Volver a tomar</button><br />
+        <div id="stickers_area" class="stickerArea">
+          <div id="sticker_games" class="hidden">
+            <img src="./stickers/coin.png" class="sticker" onclick="selectSticker('sticker4')" id="sticker4"/>
+            <img src="./stickers/box.png" class="sticker" onclick="selectSticker('sticker5')" id="sticker5"/>
+            <img src="./stickers/mushroom.png" class="sticker" onclick="selectSticker('sticker6')" id="sticker6"/>
+            <img src="./stickers/Super-Mario-Logo-PNG-Clipart.png" class="sticker" onclick="selectSticker('sticker7')" id="sticker7"/>
+          </div>
+          <div id="sticker_hats" class="hidden">
+            <img src="./stickers/christmas.png" class="sticker" onclick="selectSticker('sticker8')" id="sticker8"/>
+            <img src="./stickers/magic.png" class="sticker" onclick="selectSticker('sticker9')" id="sticker9"/>
+            <img src="./stickers/san_patrick.png" class="sticker" onclick="selectSticker('sticker10')" id="sticker10"/>
+            <img src="./stickers/party.png" class="sticker" onclick="selectSticker('sticke11')" id="sticke11"/>
+          </div>
+          <div id="sticker_glasses" class="hidden">
+            <img src="./stickers/deal-with-it.png" class="sticker" onclick="selectSticker('sticker3')" id="sticker3"/>
+            <img src="./stickers/3d.png" class="sticker" onclick="selectSticker('sticker12')" id="sticker12"/>
+            <img src="./stickers/john.png" class="sticker" onclick="selectSticker('sticker13')" id="sticker13"/>
+            <img src="./stickers/party_glasses.png" class="sticker" onclick="selectSticker('sticker14')" id="sticker14"/>
+            <img src="./stickers/reading.png" class="sticker" onclick="selectSticker('sticke14')" id="sticke14"/>
+          </div>
+          <div id="sticker_random" class="hidden">
+            <img src="./stickers/Happy_smiley_face.png" class="sticker" onclick="selectSticker('sticker1')" id="sticker1"/>
+            <img src="./stickers/heart.png" class="sticker" onclick="selectSticker('sticker2')" id="sticker2"/>
+            <img src="./stickers/Halloween-PNG-Photo.png" class="sticker" onclick="selectSticker('sticker15')" id="sticker15"/>
+            <img src="./stickers/Holly-Lights-PNG-File.png" class="sticker" onclick="selectSticker('sticker16')" id="sticker16"/>
+            <img src="./stickers/carlos.png" class="sticker" onclick="selectSticker('sticker21')" id="sticker21"/>
+          </div>
+          <div id="sticker_frames" class="hidden">
+            <img src="./stickers/frame1.png" class="sticker" onclick="addFrame('sticker17')" id="sticker17"/>
+            <img src="./stickers/frame2.png" class="sticker" onclick="addFrame('sticker18')" id="sticker18"/>
+            <img src="./stickers/frame3.png" class="sticker" onclick="addFrame('sticker19')" id="sticker19"/>
+            <img src="./stickers/frame4.png" class="sticker" onclick="addFrame('sticker20')" id="sticker20"/>
+          </div>
+          <div id="sticker_show_size" class="stickerSize">
+            <img id="sticker_selected_size" class="small" />
+            <button id="bigger">  <i class="fa fa-plus"></i>  </button>
+            <button id="smaller">  <i class="fa fa-minus"></i>  </button>
+          </div>
+        </div>
+
+        <input id="img_name" placeholder="Nombre de la foto" />
+        <textarea id="img_desc" placeholder="Descripcion de la foto"></textarea><br />
+        <button id="img_save"><i class="fa fa-save"></i>Guardar</button>
+      </div>
+    </div>
+
+    <div id="new_audio_modal" class="hidden">
+      <button id="cancel_audio" class="cancel">X</button><br />
+      <div id="audio_record_controls">
+        <button id="audio_start_stop" class="center_button">Grabar</button>
+        <div class="clock" id="audio_clock"></div>
+        <span id="audio_time_left"></span>
+      </div>
+      <div id="finished_audio_modal" class="hidden">
+        <audio id="finished_audio" controls autoplay></audio><br />
+        <button id="retake_audio"><i class="fa fa-repeat"></i>  Volver a grabar</button><br />
+        <input id="audio_name" placeholder="Nombre" "width:500px"/><br />
+        <textarea id="audio_desc" placeholder="descripcion del audio" "width:500px"></textarea><br />
+        <label><i class="fa fa-thumb-tack"></i>  Thumbnail: <input type="file" id="thumbnail" accept="image/*"/></label><br />
+        <img id="thumb" class="hidden" /><br />
+        <button id="audio_save"><i class="fa fa-save"></i>Guardar</button>
+        <p><i class="fa fa-cut"></i> Cut before saving</p>
+        <label>Comienza el corte:<input type="number" id="audio_cut_start" style="width:30px"/></label>
+        <label>Termina el corte: <input type="number" id="audio_cut_stop" style="width:30px" /></label><br />
+        <button id="cut_audio"><i class="fa fa-cut"></i>  Cortar</button>
+      </div>
+    </div>
+
+    <div id="gallery"></div>
+    <p class="credits">Creado por Samuel Parra <a href="https://github.com/samuelpg"><i class="fa fa-github"></i>  Github</a>
+    </p>
+    <script src="app.js"></script>
+  </body>
+</html>

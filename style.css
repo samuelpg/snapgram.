@@ -1,0 +1,219 @@
+.hidden{
+  display: none;
+}
+
+video, canvas{
+  height: 375px;
+  width: 500px;
+}
+
+.cancel{
+  background-color: rgb(255, 46, 0);
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  float: right;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.sticker{
+  height: 60px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+.stickerArea{
+  width: 520px;
+
+}
+@font-face {
+  src: url("futura.ttf");
+  font-family: futura;
+}
+
+.galleryModal{
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.galleryModal video{
+  width: 300px;
+  height: 225px;
+}
+.galleryModal img{
+  height: 225px;
+}
+.videoGalleryModal{
+  display: -webkit-inline-box;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  background-color: rgb(67, 160, 227);
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.audioGalleryModal{
+  display: -webkit-inline-box;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  background-color: rgb(137, 227, 67);
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.imgGalleryModal{
+  display: -webkit-inline-box;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  background-color: rgb(255, 212, 61);
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+button{
+  background-color: rgb(135, 0, 255);
+  color: white;
+  border: none;
+  margin-right: 10px;
+  font-size: 18px;
+  font-family: futura;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-bottom: 10px;
+}
+
+button:hover{
+  background-color: white;
+  color: rgb(135, 0, 255);
+  transition: 0.5s;
+}
+.downloadButton{
+  background-color: rgb(135, 0, 255);
+  color: white;
+  font-family: futura;
+  font-size: 18px;
+  margin-right: 10px;
+  text-decoration: none;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.downloadButton:hover{
+  background-color: white;
+  color: rgb(135, 0, 255);
+  transition: 0.5s;
+}
+body{
+  background-color: rgb(207, 207, 207);
+  font-family: futura;
+}
+.header{
+  background-color: rgb(255, 252, 0);
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+header button{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.white{
+  color: white;
+}
+.nothing{
+  text-align: center;
+}
+input{
+  border-color: rgb(135, 0, 255);
+  height: 20px;
+  margin-bottom: 10px;
+  width: 85%;
+}
+
+.center{
+  width: 600px;
+  margin: 0 auto;
+}
+.center input{
+  border-color: rgb(135, 0, 255);
+  height: 20px;
+  margin-bottom: 10px;
+}
+.clock{
+  font-size: 180px;
+  color:white;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(143, 0, 255);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 300px;
+  margin: 0 auto;
+  position: fixed;
+  right: 60px;
+  top: 32%;
+}
+.stickerSize{
+  font-size: 180px;
+  color:white;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(143, 0, 255);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 300px;
+  margin: 0 auto;
+  position: fixed;
+  left: 160px;
+  top: 32%;
+  padding: auto auto;
+}
+.centered{
+  text-align: center;
+}
+.small{
+  height: 100px;
+  position: absolute;
+  top: 38%;
+  left: 38%;
+  margin-top: -25px;
+  margin-left: -25px;
+}
+textarea{
+  border-color: rgb(135, 0, 255);
+  height: 40px;
+  border: 2px solid rgb(135, 0, 255);
+  margin-bottom: 10px;
+  width: 500px;
+}
+.center_video{
+  margin-left: 50px;
+}
+.center_button{
+  margin-left: 250px;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+}
+.thumbnail{
+   height: 190px !important;
+   width: 300px;
+}
+.empty_thumb{
+  height: 190px !important;
+  width: 300px;
+  background-image: url("Audio-Thumbnail.jpg");
+}
+.credits{
+  position: fixed;
+  bottom: 5px;
+  right: 20px;
+}
+.credits a{
+  text-decoration: none;
+  color: rgb(135, 0, 255);
+}
